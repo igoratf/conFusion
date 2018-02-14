@@ -1,0 +1,90 @@
+<div class="container"
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" 
+  fxLayoutGap.xs="0">
+
+  <div fxFlex="40">
+      <md-card fxFlex *ngIf="dish">
+        <md-card-title>
+            {{dish.name | uppercase}}
+          </md-card-title>
+          <img height='200px' src={{dish.image}} alt={{dish.name}}>
+          <md-card-content>
+            {{dish.description}}
+          </md-card-content>
+        
+          <!-->Buttons<-->
+          <md-card-actions>
+            <button md-button>LIKE</button>
+            <button md-button>SHARE</button>
+          </md-card-actions>
+        </md-card>
+  </div>
+
+  <div fxFlex="40">
+    <h2>Comments</h2>
+    <md-list>
+      <!--> md-list-item looping has issues, so I manually added it<-->
+      <md-list-item>
+        <p>
+          {{dish.comments[0].comment}}<br>
+          {{dish.comments[0].rating}} Stars <br>
+          -- {{dish.comments[0].author}} {{dish.comments[0].date | date}}
+        </p>
+      </md-list-item>
+      <br>
+      <br>
+
+      <md-list-item>
+          <p>
+              {{dish.comments[1].comment}}<br>
+              {{dish.comments[1].rating}} Stars <br>
+              -- {{dish.comments[1].author}} {{dish.comments[1].date | date}}
+            </p>
+            <br>
+      </md-list-item>
+      <br>
+      <br>
+
+      <md-list-item>
+          <p>
+              {{dish.comments[2].comment}}<br>
+              {{dish.comments[2].rating}} Stars <br>
+              -- {{dish.comments[2].author}} {{dish.comments[2].date | date}}
+            </p>
+            <br>
+      </md-list-item>
+      <br>
+      <br>
+
+      <md-list-item>
+          <p>
+              {{dish.comments[3].comment}}<br>
+              {{dish.comments[3].rating}} Stars <br>
+              -- {{dish.comments[3].author}} {{dish.comments[3].date | date}}
+            </p>
+            <br>
+      </md-list-item>
+      
+      <br>
+      <br>
+
+      <md-list-item>
+          <p>
+              {{dish.comments[4].comment}}<br>
+              {{dish.comments[4].rating}} Stars <br>
+              -- {{dish.comments[4].author}} {{dish.comments[4].date | date}}
+            </p>
+            <br>
+      </md-list-item>
+    </md-list>
+  </div>
+
+</div>
+ 
+
+
+

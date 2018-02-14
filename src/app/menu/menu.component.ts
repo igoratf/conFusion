@@ -32,7 +32,9 @@ category: 'dessert',
 label:'',
 price:'2.99',
 description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms'                        }
-]
+];
+
+export var selectedDish = DISHES[0];
 
 @Component({
   selector: 'app-menu',
@@ -42,8 +44,7 @@ description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cr
 export class MenuComponent implements OnInit {
 
   dishes = DISHES;
-
-  selectedDish: Dish = DISHES[0];
+  selectedDish = selectedDish;
 
   constructor() { }
 
