@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatGridListModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule }  from '@angular/flex-layout';
 
  
@@ -24,8 +24,12 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatGridListModule,
     HttpModule,
-    MaterialModule,
+    MatCardModule,
     FlexLayoutModule
   ],
   providers: [],
