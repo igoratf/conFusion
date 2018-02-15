@@ -6,13 +6,15 @@
   fxLayoutGap="10px" 
   fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
-      <mat-card fxFlex *ngIf="dish">
+  <div fxFlex=40>
+      <mat-card *ngIf="dish">
         <mat-card-title>
             {{dish.name | uppercase}}
           </mat-card-title>
-          <img mat-card src={{dish.image}} alt={{dish.name}}>
+          <img mat-card-lg-image src={{dish.image}} alt={{dish.name}}>
+
           <mat-card-content>
+            <br>
             {{dish.description}}
           </mat-card-content>
         
