@@ -28,57 +28,11 @@
     <h2>Comments</h2>
     <mat-list>
       <!--> mat-list-item looping has issues, so I manually added it<-->
-      <mat-list-item>
-        <p>
-          {{dish.comments[0].comment}}<br>
-          {{dish.comments[0].rating}} Stars <br>
-          -- {{dish.comments[0].author}} {{dish.comments[0].date | date}}
-        </p>
-      </mat-list-item>
-      <br>
-      <br>
-
-      <mat-list-item>
-          <p>
-              {{dish.comments[1].comment}}<br>
-              {{dish.comments[1].rating}} Stars <br>
-              -- {{dish.comments[1].author}} {{dish.comments[1].date | date}}
-            </p>
-            <br>
-      </mat-list-item>
-      <br>
-      <br>
-
-      <mat-list-item>
-          <p>
-              {{dish.comments[2].comment}}<br>
-              {{dish.comments[2].rating}} Stars <br>
-              -- {{dish.comments[2].author}} {{dish.comments[2].date | date}}
-            </p>
-            <br>
-      </mat-list-item>
-      <br>
-      <br>
-
-      <mat-list-item>
-          <p>
-              {{dish.comments[3].comment}}<br>
-              {{dish.comments[3].rating}} Stars <br>
-              -- {{dish.comments[3].author}} {{dish.comments[3].date | date}}
-            </p>
-            <br>
-      </mat-list-item>
-      
-      <br>
-      <br>
-
-      <mat-list-item>
-          <p>
-              {{dish.comments[4].comment}}<br>
-              {{dish.comments[4].rating}} Stars <br>
-              -- {{dish.comments[4].author}} {{dish.comments[4].date | date}}
-            </p>
-            <br>
+      <mat-list-item *ngFor="let comment of dish.comments">
+        <p matLine>{{comment.comment}}</p>
+        <p matLine>{{comment.rating}} Stars</p>
+        <p matLine>-- {{comment.author}} {{comment.date | date}}</p>
+        <br>
       </mat-list-item>
     </mat-list>
   </div>
