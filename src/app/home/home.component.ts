@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Dish } from '../shared/dish';
-import { DishService } from '../services/dish.service';
 import { Promotion } from '../shared/promotion';
 
 import { PromotionService } from '../services/promotion.service';
+import { DishService } from '../services/dish.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +13,14 @@ import { PromotionService } from '../services/promotion.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private promoService: PromotionService) { }
+  dish: Dish;
+  promotion: Promotion;
+
+  constructor(private promotionService: PromotionService, private dishService: DishService) { }
 
   ngOnInit() {
+    this.dish = this.dishService.getFeaturedDish();
+    this.promotion = this.promotionService.getFeaturedPromotion(); 
   }
 
 }
