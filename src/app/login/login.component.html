@@ -1,0 +1,28 @@
+<mat-toolbar mat-dialog-title color="primary">
+  Login
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<!--> Testing user object visualization<-->
+<p>
+  {{ user | json }}
+</p>
+
+
+<form novalidate>
+  <p>
+    <mat-form-field>
+        <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="username" required> 
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" required> 
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="user.remember" name="remember">
+      Remember me
+    </mat-checkbox>
+    
+  </p>
+</form>
