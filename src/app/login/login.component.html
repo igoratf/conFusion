@@ -10,19 +10,26 @@
 </p>
 
 
-<form novalidate>
-  <p>
-    <mat-form-field>
-        <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="username" required> 
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" required> 
-    </mat-form-field>
-
-    <mat-checkbox [(ngModel)]="user.remember" name="remember">
-      Remember me
-    </mat-checkbox>
-    
-  </p>
+<form novalidate (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+      <p>
+          <mat-form-field>
+              <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="username" required> 
+          </mat-form-field>
+      
+          <mat-form-field>
+              <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" required> 
+          </mat-form-field>
+          
+          <mat-checkbox [(ngModel)]="user.remember" name="remember">
+            Remember me
+          </mat-checkbox>
+          
+        </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white">Login</button>
+  </mat-dialog-actions>
 </form>
