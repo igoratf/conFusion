@@ -26,7 +26,7 @@
               <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" #password="ngModel" required>
               <mat-hint>
                 <span [hidden]="username.pristine">
-                  <span [hidden]="!username.errors?.required">Username required</span>
+                  <span [hidden]="!username.errors?.required">Password required</span>
                 </span>
               </mat-hint> 
           </mat-form-field>
