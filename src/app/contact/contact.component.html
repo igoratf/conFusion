@@ -43,9 +43,17 @@
           <p>
             <mat-form-field class="half-width">
               <input matInput formControlName="firstname" placeholder="First Name" type="text">
+              <mat-hint>
+                <span>Enter a valid first name</span>
+              </mat-hint>
+              <mat-error  *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">First name is <strong>required</strong></mat-error>
             </mat-form-field>
             <mat-form-field class="half-width">
               <input matInput formControlName="lastname" placeholder="Last Name" type="text">
+              <mat-hint>
+                <span>Enter a valid last name</span>
+              </mat-hint>
+              <mat-error  *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">Last name is <strong>required</strong></mat-error>
             </mat-form-field>
             <mat-form-field class="half-width">
               <input matInput formControlName="telnum" placeholder="Tel. number" type="tel">
