@@ -27,10 +27,16 @@ export class ContactComponent implements OnInit {
       telnum: 0,
       email: '',
       agree: false,
-      contactType: 'None',
+      contacttype: 'None',
       message: ''
 
     });
+  }
+
+  onSubmit() {
+    this.feedback = this.feedbackForm.value;
+    console.log(this.feedback);
+    this.feedbackForm.reset();
   }
 
 }
