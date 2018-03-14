@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatGridListModule, MatCardModule, MatDialogModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatGridListModule, MatCardModule, MatDialogModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, MatSelectModule, MatOption, MatOptionModule } from '@angular/material';
 import { FlexLayoutModule }  from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -53,7 +53,8 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [DishService, PromotionService, LeaderService],
   entryComponents: [LoginComponent],
