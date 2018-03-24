@@ -55,6 +55,7 @@
             </mat-form-field>
             <mat-form-field class="half-width">
               <input matInput formControlName="email" placeholder="Email" type="email">
+              <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">Email is <strong>required</strong></mat-error>
             </mat-form-field>
           </p>
 

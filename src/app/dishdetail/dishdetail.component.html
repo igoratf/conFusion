@@ -27,7 +27,11 @@
         </mat-card>
   </div>
 
-  <div fxFlex="40">
+  <div [hidden]="dish">
+    <mat-spinner></mat-spinner> <h4>Loading . . . Please wait</h4>
+  </div>
+
+  <div fxFlex="40" *ngIf="dish">
     <h2>Comments</h2>
     <mat-list>
       <!--> mat-list-item looping has issues, so I manually added it<-->
@@ -39,7 +43,6 @@
       </mat-list-item>
     </mat-list>
   </div>
-
 </div>
  
 

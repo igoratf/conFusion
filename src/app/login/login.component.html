@@ -4,31 +4,22 @@
   <button mat-button mat-dialog-close>&times;</button>
 </mat-toolbar>
 
-<!--> Testing user object visualization<-->
-<p>
-  {{ user | json }}
-</p>
-
 
 <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-dialog-content>
       <p>
           <mat-form-field dividerColor="{{username.invalid && !username.pristine ? 'warn' : 'primary'}}">
               <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="username" #username="ngModel" required>
-              <mat-hint>
-                <span [hidden]="username.pristine">
-                  <span [hidden]="!username.errors?.required">Username required</span>
-                </span>
-              </mat-hint> 
+              <mat-error *ngIf="username.errors.required">
+                Username <strong>required</strong>
+              </mat-error>
           </mat-form-field>
       
           <mat-form-field dividerColor="{{password.invalid && !password.pristine ? 'warn' : 'primary'}}">
               <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" #password="ngModel" required>
-              <mat-hint>
-                <span [hidden]="username.pristine">
-                  <span [hidden]="!username.errors?.required">Password required</span>
-                </span>
-              </mat-hint> 
+              <mat-error *ngIf="password.errors.required">
+                Password <strong>required</strong>
+              </mat-error>
           </mat-form-field>
           
           <mat-checkbox [(ngModel)]="user.remember" name="remember">
