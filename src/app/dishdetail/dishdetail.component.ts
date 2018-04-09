@@ -8,6 +8,8 @@ import { DishService } from '../services/dish.service';
 
 import 'rxjs/add/operator/switchMap';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { Comment } from '../shared/comment';
 
 
 
@@ -18,13 +20,15 @@ import { PARAMETERS } from '@angular/core/src/util/decorators';
 })
 export class DishdetailComponent implements OnInit {
   
-
+  feedbackForm: FormGroup;
   dish: Dish;
   dishIds: number[];
   prev: number;
   next: number;
 
-  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
+    this.createForm();
+   }
 
   ngOnInit() {
     this.dishService.getDishIds().
@@ -35,6 +39,8 @@ export class DishdetailComponent implements OnInit {
       this.dish = dish;
       this.setPrevNext(dish.id);
     });
+
+
   }
 
   setPrevNext(dishId: number) {
@@ -46,5 +52,36 @@ export class DishdetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  createForm() {
+    this.feedbackForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
+      comment: ['', Validators.required],
+      rating: [0, [Validators.max(5), Validators.min(1)]]
+    });
+
+    console.log(this.feedbackForm.get('username').value);
+  }
+
+  resetForm() {
+    this.feedbackForm.reset({
+      'username': '',
+      'rating': 0,
+      'comment': ''
+    });
+  }
+
+  submitComment() {
+    this.dish.comments.push({
+      rating: this.feedbackForm.get('rating').value,
+      comment: this.feedbackForm.get('comment').value,
+      author: this.feedbackForm.get('username').value,
+      date: Date.now().toString()
+    });
+
+    this.resetForm();
+  }
+
+
 
 }

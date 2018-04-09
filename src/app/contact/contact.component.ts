@@ -78,6 +78,10 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  /*
+  * This probably isn't the best way to validate reactive forms now, as the course was based in Angular documentation
+  * and it is now different and simpler. Thus, I am using it here only to follow the course and it's assignments
+  */
   onValueChanged(data?: any) {
     if (!this.feedbackForm) {return;}
 
