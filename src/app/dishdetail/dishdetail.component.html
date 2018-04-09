@@ -47,6 +47,35 @@
         <br>
       </mat-list-item>
     </mat-list>
+
+    <mat-list *ngIf="feedbackForm.valid">
+      <mat-list-item>
+        <p matLine>{{ feedbackForm.get('comment').value }}</p>
+        <p matLine>{{ feedbackForm.get('rating').value }} Stars</p>
+        <p matLine>-- {{ feedbackForm.get('username').value }}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="column">
+      <form [formGroup]="feedbackForm" class="form">
+        <mat-form-field class="full-width">
+          <input matInput class="form-control" formControlName="username" placeholder="Name">
+          <mat-error *ngIf="feedbackForm.get('username').hasError('required')">Name is <strong>required</strong></mat-error>
+          <mat-error *ngIf="feedbackForm.get('username').hasError('minlength')">Name must be at least 2 characters long</mat-error>
+        </mat-form-field>
+        
+
+        <mat-slider class="slider" thumbLabel tickInterval="1" max="5" formControlName="rating"></mat-slider>
+
+        <mat-form-field class="full-width comment">
+          <textarea matInput class="form-control" formControlName="comment" placeholder="Your comment" style="height: 200px"></textarea>
+          <mat-error *ngIf="feedbackForm.get('comment').hasError('required')">Comment is <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <button mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid" (click)="submitComment()">Submit</button>
+      </form>
+    </div>
+    
   </div>
 </div>
  
