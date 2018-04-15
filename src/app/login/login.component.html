@@ -5,19 +5,19 @@
 </mat-toolbar>
 
 
-<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-dialog-content>
       <p>
-          <mat-form-field dividerColor="{{username.invalid && !username.pristine ? 'warn' : 'primary'}}">
+          <mat-form-field>
               <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="username" #username="ngModel" required>
-              <mat-error *ngIf="username.errors.required">
+              <mat-error *ngIf="!username.valid && username.touched">
                 Username <strong>required</strong>
               </mat-error>
           </mat-form-field>
       
-          <mat-form-field dividerColor="{{password.invalid && !password.pristine ? 'warn' : 'primary'}}">
+          <mat-form-field>
               <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="password" #password="ngModel" required>
-              <mat-error *ngIf="password.errors.required">
+              <mat-error *ngIf="!password.valid && password.touched">
                 Password <strong>required</strong>
               </mat-error>
           </mat-form-field>
