@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -26,11 +26,15 @@ export class DishdetailComponent implements OnInit {
   prev: number;
   next: number;
 
-  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
-    this.createForm();
-   }
+  constructor(private dishService: DishService,
+     private route: ActivatedRoute,
+     private location: Location,
+     private fb: FormBuilder,
+     @Inject('BaseURL') private BaseURL
+      ) {   }
 
   ngOnInit() {
+    this.createForm();
     this.dishService.getDishIds().
     subscribe(dishIds => this.dishIds = dishIds);
 

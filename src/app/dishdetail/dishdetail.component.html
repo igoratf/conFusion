@@ -11,7 +11,7 @@
         <mat-card-title>
             {{dish.name | uppercase}}
           </mat-card-title>
-          <img mat-card-lg-image src={{dish.image}} alt={{dish.name}}>
+          <img mat-card-lg-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
 
           <mat-card-content>
             <br>
