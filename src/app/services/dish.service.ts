@@ -26,7 +26,6 @@ export class DishService {
     return this.http.get(baseURL + 'dishes/' + id).map(res => {
       return this.processHTTPMsgService.extractData(res);
     });
-    /* return Observable.of(DISHES.filter((dish) => (dish.id === id))[0]).delay(2000); */
 }
 
   getFeaturedDish(): Observable<Dish> {
