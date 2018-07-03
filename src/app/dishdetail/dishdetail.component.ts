@@ -25,6 +25,7 @@ export class DishdetailComponent implements OnInit {
   dishIds: number[];
   prev: number;
   next: number;
+  errMsg: string;
 
   constructor(private dishService: DishService,
      private route: ActivatedRoute,
@@ -42,7 +43,7 @@ export class DishdetailComponent implements OnInit {
     .subscribe(dish => {
       this.dish = dish;
       this.setPrevNext(dish.id);
-    });
+    }, errmsg => {this.errMsg = errmsg});
 
 
   }
