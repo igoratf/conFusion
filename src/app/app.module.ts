@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatGridListModule, MatCardModule, MatDialogModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, MatSelectModule, MatOption, MatOptionModule, MatProgressSpinner, MatProgressSpinnerModule, MatSliderModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatGridListModule, MatCardModule, MatDialogModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, MatSelectModule, MatOption, MatOptionModule, MatProgressSpinner, MatProgressSpinnerModule, MatSliderModule, MatListModule } from '@angular/material';
 import { FlexLayoutModule }  from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -59,7 +59,8 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     MatSelectModule,
     MatOptionModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatListModule
   ],
   providers: [DishService, PromotionService, LeaderService, { provide: 'BaseURL', useValue: baseURL }, ProcessHttpmsgService],
   entryComponents: [LoginComponent],
